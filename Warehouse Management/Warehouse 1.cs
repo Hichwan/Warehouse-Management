@@ -53,12 +53,14 @@ namespace Warehouse_Management
 
         private void AddItem_Click(object sender, EventArgs e)
         {
-
+            PopoutAdd add = new PopoutAdd();
+            add.Show();
         }
 
         private void DeleteItem_Click(object sender, EventArgs e)
         {
-
+            PopoutDelete delete = new PopoutDelete();
+            delete.Show();
         }
 
         private void Statement_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,7 +75,8 @@ namespace Warehouse_Management
 
         private void BuyItem_Click(object sender, EventArgs e)
         {
-
+            Popout1 f2 = new Popout1();
+            f2.Show();
         }
 
         private void AddMoney_Click(object sender, EventArgs e)
@@ -94,23 +97,19 @@ namespace Warehouse_Management
         public void LogInButt_Click(object sender, EventArgs e)
         {
             Account.Name = UsernameBox.Text;
+            UsernameBox.Clear();
             Account.Password = PasswordBox.Text;
+            PasswordBox.Clear();
+            WelcomeBox.Text = "Welcome" + Account.Name;
          }
     
 
         private void LogOutButt_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void UsernameBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void PasswordBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
+            UsernameBox.Text = string.Empty;
+            Account.Name = "";
+            PasswordBox.Text = string.Empty;
+            Account.Password = "";
         }
     }
 }

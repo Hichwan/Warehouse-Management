@@ -47,7 +47,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AddMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMoney.Designer.cs">
+      <DependentUpon>AddMoney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyItems.Designer.cs">
+      <DependentUpon>ModifyItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopoutAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopoutAdd.Designer.cs">
+      <DependentUpon>PopoutAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popout items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popout items.Designer.cs">
+      <DependentUpon>Popout items.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items.cs" />
+    <Compile Include="PopoutDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopoutDelete.Designer.cs">
+      <DependentUpon>PopoutDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transaction.cs" />
     <Compile Include="Statement.cs" />
     <Compile Include="Warehouse 1.cs">
@@ -58,6 +88,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddMoney.resx">
+      <DependentUpon>AddMoney.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyItems.resx">
+      <DependentUpon>ModifyItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopoutAdd.resx">
+      <DependentUpon>PopoutAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popout items.resx">
+      <DependentUpon>Popout items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopoutDelete.resx">
+      <DependentUpon>PopoutDelete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Warehouse 1.resx">
       <DependentUpon>Warehouse 1.cs</DependentUpon>
     </EmbeddedResource>

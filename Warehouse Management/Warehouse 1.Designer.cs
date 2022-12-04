@@ -32,7 +32,6 @@ namespace Warehouse_Management
             this.WelcomeBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.AddItem = new System.Windows.Forms.Button();
-            this.DeleteItem = new System.Windows.Forms.Button();
             this.Statement = new System.Windows.Forms.ComboBox();
             this.ModifyItem = new System.Windows.Forms.ComboBox();
             this.BuyItem = new System.Windows.Forms.Button();
@@ -51,6 +50,7 @@ namespace Warehouse_Management
             this.LogInButt = new System.Windows.Forms.Button();
             this.LogOutButt = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.DeleteItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,16 +82,6 @@ namespace Warehouse_Management
             this.AddItem.Text = "Add Item";
             this.AddItem.UseVisualStyleBackColor = true;
             this.AddItem.Click += new System.EventHandler(this.AddItem_Click);
-            // 
-            // DeleteItem
-            // 
-            this.DeleteItem.Location = new System.Drawing.Point(192, 249);
-            this.DeleteItem.Name = "DeleteItem";
-            this.DeleteItem.Size = new System.Drawing.Size(109, 48);
-            this.DeleteItem.TabIndex = 4;
-            this.DeleteItem.Text = "Delete Item";
-            this.DeleteItem.UseVisualStyleBackColor = true;
-            this.DeleteItem.Click += new System.EventHandler(this.DeleteItem_Click);
             // 
             // Statement
             // 
@@ -149,7 +139,6 @@ namespace Warehouse_Management
             this.UsernameBox.Size = new System.Drawing.Size(133, 20);
             this.UsernameBox.TabIndex = 9;
             this.UsernameBox.TextChanged += new System.EventHandler(this.UsernameBox_TextChanged);
-            this.UsernameBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UsernameBox_KeyPress);
             // 
             // PasswordBox
             // 
@@ -158,7 +147,6 @@ namespace Warehouse_Management
             this.PasswordBox.Size = new System.Drawing.Size(136, 20);
             this.PasswordBox.TabIndex = 10;
             this.PasswordBox.TextChanged += new System.EventHandler(this.PasswordBox_TextChanged);
-            this.PasswordBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PasswordBox_KeyPress);
             // 
             // label2
             // 
@@ -249,6 +237,16 @@ namespace Warehouse_Management
             this.textBox4.Text = "Warehouse #123\r\nLocation: 128 Fresno Lane 92390 Los Elis, CA\r\n";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // DeleteItem
+            // 
+            this.DeleteItem.Location = new System.Drawing.Point(192, 249);
+            this.DeleteItem.Name = "DeleteItem";
+            this.DeleteItem.Size = new System.Drawing.Size(109, 48);
+            this.DeleteItem.TabIndex = 4;
+            this.DeleteItem.Text = "Delete Item";
+            this.DeleteItem.UseVisualStyleBackColor = true;
+            this.DeleteItem.Click += new System.EventHandler(this.DeleteItem_Click);
+            // 
             // WarehouseApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,7 +282,6 @@ namespace Warehouse_Management
         private System.Windows.Forms.TextBox WelcomeBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AddItem;
-        private System.Windows.Forms.Button DeleteItem;
         private System.Windows.Forms.ComboBox Statement;
         private System.Windows.Forms.ComboBox ModifyItem;
         private System.Windows.Forms.Button BuyItem;
@@ -303,6 +300,7 @@ namespace Warehouse_Management
         private System.Windows.Forms.Button LogInButt;
         private System.Windows.Forms.Button LogOutButt;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button DeleteItem;
     }
 }
 
