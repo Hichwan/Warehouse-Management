@@ -41,7 +41,7 @@ namespace Warehouse_Management
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.Table = new System.Windows.Forms.DataGridView();
+            this.ItemTable = new System.Windows.Forms.DataGridView();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +51,7 @@ namespace Warehouse_Management
             this.LogOutButt = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.DeleteItem = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemTable)).BeginInit();
             this.SuspendLayout();
             // 
             // WelcomeBox
@@ -101,13 +101,13 @@ namespace Warehouse_Management
             this.ModifyItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ModifyItem.FormattingEnabled = true;
             this.ModifyItem.Items.AddRange(new object[] {
-            "Change Item Name",
-            "Change Item Quantity",
-            "Change Item Category",
-            "Change Item Price"});
-            this.ModifyItem.Location = new System.Drawing.Point(360, 255);
+            "Name",
+            "Quantity",
+            "Category",
+            "Price"});
+            this.ModifyItem.Location = new System.Drawing.Point(366, 255);
             this.ModifyItem.Name = "ModifyItem";
-            this.ModifyItem.Size = new System.Drawing.Size(145, 33);
+            this.ModifyItem.Size = new System.Drawing.Size(153, 33);
             this.ModifyItem.TabIndex = 6;
             this.ModifyItem.Text = "Modify Item";
             this.ModifyItem.SelectedIndexChanged += new System.EventHandler(this.ModifyItem_SelectedIndexChanged);
@@ -166,20 +166,20 @@ namespace Warehouse_Management
             this.label3.TabIndex = 12;
             this.label3.Text = "Password";
             // 
-            // Table
+            // ItemTable
             // 
-            this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ItemTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Name,
             this.ID,
             this.Quantity,
             this.Category,
             this.Price});
-            this.Table.Location = new System.Drawing.Point(144, 87);
-            this.Table.Name = "Table";
-            this.Table.Size = new System.Drawing.Size(553, 144);
-            this.Table.TabIndex = 13;
-            this.Table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.ItemTable.Location = new System.Drawing.Point(144, 87);
+            this.ItemTable.Name = "ItemTable";
+            this.ItemTable.Size = new System.Drawing.Size(553, 144);
+            this.ItemTable.TabIndex = 13;
+            this.ItemTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Name
             // 
@@ -255,7 +255,7 @@ namespace Warehouse_Management
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.LogOutButt);
             this.Controls.Add(this.LogInButt);
-            this.Controls.Add(this.Table);
+            this.Controls.Add(this.ItemTable);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PasswordBox);
@@ -268,10 +268,10 @@ namespace Warehouse_Management
             this.Controls.Add(this.AddItem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.WelcomeBox);
-  //          this.Name = "WarehouseApp";
-            this.Text = "Form1";
+//          this.Name = "WarehouseApp";
+            this.Text = "Warehouse App";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,8 +291,8 @@ namespace Warehouse_Management
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataGridView Table;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        public System.Windows.Forms.DataGridView ItemTable;
+        private new System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;

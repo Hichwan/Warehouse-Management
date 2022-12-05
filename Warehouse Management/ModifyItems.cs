@@ -12,6 +12,7 @@ namespace Warehouse_Management
 {
     public partial class ModifyItems : Form
     {
+
         public ModifyItems()
         {
             InitializeComponent();
@@ -25,6 +26,11 @@ namespace Warehouse_Management
         private void CancelButtCanc_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Modifier_Click(object sender, EventArgs e)
+        {
+            Modifier.Text = WarehouseApp.passingText;
         }
     }
 }

@@ -13,7 +13,8 @@ namespace Warehouse_Management
     public partial class WarehouseApp : Form
     {
 
-
+        private string Mod;
+        public static string passingText;
 
 
         public WarehouseApp()
@@ -53,7 +54,7 @@ namespace Warehouse_Management
 
         private void AddItem_Click(object sender, EventArgs e)
         {
-            PopoutAdd add = new PopoutAdd();
+            PopoutAdd add = new PopoutAdd(this);
             add.Show();
         }
 
@@ -70,7 +71,17 @@ namespace Warehouse_Management
 
         private void ModifyItem_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (ModifyItem.Text == "Change Item Name")
+                Mod = "Name";
+            if (ModifyItem.Text == "Change Item Quantity")
+                Mod = "Quantity";
+            if (ModifyItem.Text == "Change Item Category")
+                Mod = "Category";
+            if (ModifyItem.Text == "Change Item Price")
+                Mod = "Price";
+            passingText = Mod;
+            ModifyItems modify = new ModifyItems();
+            modify.Show();
         }
 
         private void BuyItem_Click(object sender, EventArgs e)
@@ -96,20 +107,23 @@ namespace Warehouse_Management
 
         public void LogInButt_Click(object sender, EventArgs e)
         {
-            Account.Name = UsernameBox.Text;
+            var account1 = new Account();
+            account1.Name = UsernameBox.Text;
             UsernameBox.Clear();
-            Account.Password = PasswordBox.Text;
+            account1.Password = PasswordBox.Text;
             PasswordBox.Clear();
-            WelcomeBox.Text = "Welcome" + Account.Name;
+            WelcomeBox.Text = "Welcome " + account1.Name + "!";
          }
     
 
         private void LogOutButt_Click(object sender, EventArgs e)
         {
+            var account2 = new Account();
             UsernameBox.Text = string.Empty;
-            Account.Name = "";
+            account2.Name = "";
             PasswordBox.Text = string.Empty;
-            Account.Password = "";
+            account2.Password = "";
+            WelcomeBox.Clear();
         }
     }
 }

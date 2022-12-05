@@ -35,10 +35,10 @@ namespace Warehouse_Management
             this.label2 = new System.Windows.Forms.Label();
             this.ConfirmButtAdd = new System.Windows.Forms.Button();
             this.CancelButtAdd = new System.Windows.Forms.Button();
-            this.IDboxBuy = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.NameItemAdd = new System.Windows.Forms.TextBox();
+            this.QuantityNew = new System.Windows.Forms.TextBox();
+            this.CatNew = new System.Windows.Forms.TextBox();
+            this.CostNew = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // IDITEMLAB
@@ -65,7 +65,7 @@ namespace Warehouse_Management
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(98, 151);
+            this.label1.Location = new System.Drawing.Point(98, 221);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 18);
             this.label1.TabIndex = 6;
@@ -75,7 +75,7 @@ namespace Warehouse_Management
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(98, 212);
+            this.label2.Location = new System.Drawing.Point(98, 168);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 18);
             this.label2.TabIndex = 7;
@@ -89,6 +89,7 @@ namespace Warehouse_Management
             this.ConfirmButtAdd.TabIndex = 8;
             this.ConfirmButtAdd.Text = "Confirm";
             this.ConfirmButtAdd.UseVisualStyleBackColor = true;
+            this.ConfirmButtAdd.Click += new System.EventHandler(this.ConfirmButtAdd_Click);
             // 
             // CancelButtAdd
             // 
@@ -100,43 +101,47 @@ namespace Warehouse_Management
             this.CancelButtAdd.UseVisualStyleBackColor = true;
             this.CancelButtAdd.Click += new System.EventHandler(this.CancelButtAdd_Click);
             // 
-            // IDboxBuy
+            // NameItemAdd
             // 
-            this.IDboxBuy.Location = new System.Drawing.Point(40, 60);
-            this.IDboxBuy.Name = "IDboxBuy";
-            this.IDboxBuy.Size = new System.Drawing.Size(278, 20);
-            this.IDboxBuy.TabIndex = 10;
+            this.NameItemAdd.Location = new System.Drawing.Point(40, 60);
+            this.NameItemAdd.Name = "NameItemAdd";
+            this.NameItemAdd.Size = new System.Drawing.Size(278, 20);
+            this.NameItemAdd.TabIndex = 10;
+            this.NameItemAdd.TextChanged += new System.EventHandler(this.IDboxBuy_TextChanged);
             // 
-            // textBox1
+            // QuantityNew
             // 
-            this.textBox1.Location = new System.Drawing.Point(40, 128);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 20);
-            this.textBox1.TabIndex = 11;
+            this.QuantityNew.Location = new System.Drawing.Point(40, 128);
+            this.QuantityNew.Name = "QuantityNew";
+            this.QuantityNew.Size = new System.Drawing.Size(278, 20);
+            this.QuantityNew.TabIndex = 11;
+            this.QuantityNew.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // CatNew
             // 
-            this.textBox2.Location = new System.Drawing.Point(40, 189);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(278, 20);
-            this.textBox2.TabIndex = 12;
+            this.CatNew.Location = new System.Drawing.Point(40, 189);
+            this.CatNew.Name = "CatNew";
+            this.CatNew.Size = new System.Drawing.Size(278, 20);
+            this.CatNew.TabIndex = 12;
+            this.CatNew.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // CostNew
             // 
-            this.textBox3.Location = new System.Drawing.Point(40, 242);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(278, 20);
-            this.textBox3.TabIndex = 13;
+            this.CostNew.Location = new System.Drawing.Point(40, 242);
+            this.CostNew.Name = "CostNew";
+            this.CostNew.Size = new System.Drawing.Size(278, 20);
+            this.CostNew.TabIndex = 13;
+            this.CostNew.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // PopoutAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 380);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.IDboxBuy);
+            this.Controls.Add(this.CostNew);
+            this.Controls.Add(this.CatNew);
+            this.Controls.Add(this.QuantityNew);
+            this.Controls.Add(this.NameItemAdd);
             this.Controls.Add(this.CancelButtAdd);
             this.Controls.Add(this.ConfirmButtAdd);
             this.Controls.Add(this.label2);
@@ -158,9 +163,9 @@ namespace Warehouse_Management
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ConfirmButtAdd;
         private System.Windows.Forms.Button CancelButtAdd;
-        private System.Windows.Forms.TextBox IDboxBuy;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox NameItemAdd;
+        private System.Windows.Forms.TextBox QuantityNew;
+        private System.Windows.Forms.TextBox CatNew;
+        private System.Windows.Forms.TextBox CostNew;
     }
 }

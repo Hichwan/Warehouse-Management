@@ -37,7 +37,7 @@ namespace Warehouse_Management
             // 
             // CancelButtCanc
             // 
-            this.CancelButtCanc.Location = new System.Drawing.Point(208, 182);
+            this.CancelButtCanc.Location = new System.Drawing.Point(189, 182);
             this.CancelButtCanc.Name = "CancelButtCanc";
             this.CancelButtCanc.Size = new System.Drawing.Size(109, 34);
             this.CancelButtCanc.TabIndex = 2;
@@ -47,7 +47,7 @@ namespace Warehouse_Management
             // 
             // ConfirmButtBuy
             // 
-            this.ConfirmButtBuy.Location = new System.Drawing.Point(56, 182);
+            this.ConfirmButtBuy.Location = new System.Drawing.Point(32, 180);
             this.ConfirmButtBuy.Name = "ConfirmButtBuy";
             this.ConfirmButtBuy.Size = new System.Drawing.Size(129, 36);
             this.ConfirmButtBuy.TabIndex = 3;
@@ -58,7 +58,7 @@ namespace Warehouse_Management
             // 
             this.MoneyAsk.AutoSize = true;
             this.MoneyAsk.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MoneyAsk.Location = new System.Drawing.Point(92, 81);
+            this.MoneyAsk.Location = new System.Drawing.Point(69, 81);
             this.MoneyAsk.Name = "MoneyAsk";
             this.MoneyAsk.Size = new System.Drawing.Size(188, 18);
             this.MoneyAsk.TabIndex = 4;
@@ -67,7 +67,7 @@ namespace Warehouse_Management
             // 
             // MoneyAdd
             // 
-            this.MoneyAdd.Location = new System.Drawing.Point(56, 129);
+            this.MoneyAdd.Location = new System.Drawing.Point(32, 128);
             this.MoneyAdd.Name = "MoneyAdd";
             this.MoneyAdd.Size = new System.Drawing.Size(278, 20);
             this.MoneyAdd.TabIndex = 6;
@@ -76,7 +76,7 @@ namespace Warehouse_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 348);
+            this.ClientSize = new System.Drawing.Size(341, 288);
             this.Controls.Add(this.MoneyAdd);
             this.Controls.Add(this.MoneyAsk);
             this.Controls.Add(this.ConfirmButtBuy);

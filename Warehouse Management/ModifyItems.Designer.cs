@@ -101,6 +101,7 @@ namespace Warehouse_Management
             this.Modifier.Size = new System.Drawing.Size(69, 18);
             this.Modifier.TabIndex = 8;
             this.Modifier.Text = "Modifier";
+            this.Modifier.Click += new System.EventHandler(this.Modifier_Click);
             // 
             // ModifyItems
             // 
