@@ -60,7 +60,7 @@ namespace Warehouse_Management
 
         private void DeleteItem_Click(object sender, EventArgs e)
         {
-            PopoutDelete delete = new PopoutDelete();
+            PopoutDelete delete = new PopoutDelete(this);
             delete.Show();
         }
 

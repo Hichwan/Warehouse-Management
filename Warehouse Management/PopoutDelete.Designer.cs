@@ -51,6 +51,7 @@ namespace Warehouse_Management
             this.IDboxDel.Name = "IDboxDel";
             this.IDboxDel.Size = new System.Drawing.Size(278, 20);
             this.IDboxDel.TabIndex = 5;
+            this.IDboxDel.TextChanged += new System.EventHandler(this.IDboxDel_TextChanged);
             // 
             // ConfirmButtDel
             // 
@@ -60,6 +61,7 @@ namespace Warehouse_Management
             this.ConfirmButtDel.TabIndex = 6;
             this.ConfirmButtDel.Text = "Confirm";
             this.ConfirmButtDel.UseVisualStyleBackColor = true;
+            this.ConfirmButtDel.Click += new System.EventHandler(this.ConfirmButtDel_Click);
             // 
             // CancelButtDel
             // 
