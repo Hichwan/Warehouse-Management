@@ -16,7 +16,7 @@ namespace Warehouse_Management
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WarehouseApp());
+            Application.Run(new WarehouseApptest());
         }
     }
 }

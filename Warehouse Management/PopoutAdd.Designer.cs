@@ -116,6 +116,7 @@ namespace Warehouse_Management
             this.QuantityNew.Size = new System.Drawing.Size(278, 20);
             this.QuantityNew.TabIndex = 11;
             this.QuantityNew.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.QuantityNew.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuantityNew_KeyPress);
             // 
             // CatNew
             // 
@@ -132,6 +133,7 @@ namespace Warehouse_Management
             this.CostNew.Size = new System.Drawing.Size(278, 20);
             this.CostNew.TabIndex = 13;
             this.CostNew.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.CostNew.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostNew_KeyPress);
             // 
             // PopoutAdd
             // 

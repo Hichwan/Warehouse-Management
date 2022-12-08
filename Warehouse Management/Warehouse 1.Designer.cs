@@ -1,7 +1,7 @@
 ﻿
 namespace Warehouse_Management
 {
-    partial class WarehouseApp
+    partial class WarehouseApptest
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,6 @@ namespace Warehouse_Management
             this.label1 = new System.Windows.Forms.Label();
             this.AddItem = new System.Windows.Forms.Button();
             this.Statement = new System.Windows.Forms.ComboBox();
-            this.ModifyItem = new System.Windows.Forms.ComboBox();
             this.BuyItem = new System.Windows.Forms.Button();
             this.AddMoney = new System.Windows.Forms.Button();
             this.UsernameBox = new System.Windows.Forms.TextBox();
@@ -51,6 +50,7 @@ namespace Warehouse_Management
             this.LogOutButt = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.DeleteItem = new System.Windows.Forms.Button();
+            this.ModifyButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ItemTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,30 +87,15 @@ namespace Warehouse_Management
             // 
             this.Statement.FormattingEnabled = true;
             this.Statement.Items.AddRange(new object[] {
-            "September",
-            "October",
-            "November"});
+            "December",
+            "November",
+            "October"});
             this.Statement.Location = new System.Drawing.Point(19, 64);
             this.Statement.Name = "Statement";
             this.Statement.Size = new System.Drawing.Size(127, 21);
             this.Statement.TabIndex = 5;
+            this.Statement.Text = "December";
             this.Statement.SelectedIndexChanged += new System.EventHandler(this.Statement_SelectedIndexChanged);
-            // 
-            // ModifyItem
-            // 
-            this.ModifyItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModifyItem.FormattingEnabled = true;
-            this.ModifyItem.Items.AddRange(new object[] {
-            "Name",
-            "Quantity",
-            "Category",
-            "Price"});
-            this.ModifyItem.Location = new System.Drawing.Point(366, 255);
-            this.ModifyItem.Name = "ModifyItem";
-            this.ModifyItem.Size = new System.Drawing.Size(153, 33);
-            this.ModifyItem.TabIndex = 6;
-            this.ModifyItem.Text = "Modify Item";
-            this.ModifyItem.SelectedIndexChanged += new System.EventHandler(this.ModifyItem_SelectedIndexChanged);
             // 
             // BuyItem
             // 
@@ -247,11 +232,22 @@ namespace Warehouse_Management
             this.DeleteItem.UseVisualStyleBackColor = true;
             this.DeleteItem.Click += new System.EventHandler(this.DeleteItem_Click);
             // 
-            // WarehouseApp
+            // ModifyButton
+            // 
+            this.ModifyButton.Location = new System.Drawing.Point(350, 319);
+            this.ModifyButton.Name = "ModifyButton";
+            this.ModifyButton.Size = new System.Drawing.Size(153, 52);
+            this.ModifyButton.TabIndex = 17;
+            this.ModifyButton.Text = "Modify Item";
+            this.ModifyButton.UseVisualStyleBackColor = true;
+            this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
+            // 
+            // WarehouseApptest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ModifyButton);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.LogOutButt);
             this.Controls.Add(this.LogInButt);
@@ -262,13 +258,12 @@ namespace Warehouse_Management
             this.Controls.Add(this.UsernameBox);
             this.Controls.Add(this.AddMoney);
             this.Controls.Add(this.BuyItem);
-            this.Controls.Add(this.ModifyItem);
             this.Controls.Add(this.Statement);
             this.Controls.Add(this.DeleteItem);
             this.Controls.Add(this.AddItem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.WelcomeBox);
-//          this.Name = "WarehouseApp";
+ //           this.Name = "WarehouseApptest";
             this.Text = "Warehouse App";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ItemTable)).EndInit();
@@ -283,7 +278,6 @@ namespace Warehouse_Management
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AddItem;
         private System.Windows.Forms.ComboBox Statement;
-        private System.Windows.Forms.ComboBox ModifyItem;
         private System.Windows.Forms.Button BuyItem;
         private System.Windows.Forms.Button AddMoney;
         private System.Windows.Forms.TextBox UsernameBox;
@@ -301,6 +295,7 @@ namespace Warehouse_Management
         private System.Windows.Forms.Button LogOutButt;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button DeleteItem;
+        private System.Windows.Forms.Button ModifyButton;
     }
 }
 

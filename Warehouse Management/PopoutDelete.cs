@@ -12,12 +12,12 @@ namespace Warehouse_Management
 {
     public partial class PopoutDelete : Form
     {
-        private WarehouseApp DeleteRow;
+        private WarehouseApptest DeleteRow;
         int DeleteId;
-        public PopoutDelete(WarehouseApp _deleterow)
+        public PopoutDelete(WarehouseApptest deleterow)
         {
             InitializeComponent();
-            this.DeleteRow = _deleterow;
+            this.DeleteRow = deleterow;
         }
 
         private void CancelButtDel_Click(object sender, EventArgs e)

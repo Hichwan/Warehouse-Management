@@ -10,21 +10,26 @@ using System.Windows.Forms;
 
 namespace Warehouse_Management
 {
-    public partial class WarehouseApp : Form
+    public partial class WarehouseApptest : Form
     {
 
-        private string Mod;
+        public string Mod;
         public static string passingText;
 
 
-        public WarehouseApp()
+        public WarehouseApptest()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+ 
+            ItemTable.Rows.Add("Scapel Blade #10", 1, 1500, "Surgery", 1.50);
+            ItemTable.Rows.Add("Medium Gloves", 2, 350, "General", 10);
+            ItemTable.Rows.Add("3cc syringe", 3, 3000, "Surgery", 0.50);
+            ItemTable.Rows.Add("Baytril 68mg Inj", 4, 150, "Medicine", 37);
+            ItemTable.Rows.Add("LRS 500mL Bag", 5, 250, "Medicine", 50);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -69,21 +74,6 @@ namespace Warehouse_Management
 
         }
 
-        private void ModifyItem_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ModifyItem.Text == "Change Item Name")
-                Mod = "Name";
-            if (ModifyItem.Text == "Change Item Quantity")
-                Mod = "Quantity";
-            if (ModifyItem.Text == "Change Item Category")
-                Mod = "Category";
-            if (ModifyItem.Text == "Change Item Price")
-                Mod = "Price";
-            passingText = Mod;
-            ModifyItems modify = new ModifyItems();
-            modify.Show();
-        }
-
         private void BuyItem_Click(object sender, EventArgs e)
         {
             Popout1 f2 = new Popout1();
@@ -124,6 +114,12 @@ namespace Warehouse_Management
             PasswordBox.Text = string.Empty;
             account2.Password = "";
             WelcomeBox.Clear();
+        }
+
+        private void ModifyButton_Click(object sender, EventArgs e)
+        {
+            ModifyItems modify = new ModifyItems(this);
+            modify.Show();
         }
     }
 }
