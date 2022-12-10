@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
@@ -74,20 +75,18 @@ namespace Warehouse_Management
                         int rowID = Convert.ToInt32(row.Cells[1].Value);
                         if (rowID == ChangeID)
                         {
-                            if (modifier == 1 || modifier == 3)
-                            {
-                            row.Cells[modifier].Value = ChangeBox.Text;
-                            }
-                            else if (modifier == 2)
-                            {
-                            row.Cells[modifier].Value = ChangeBox.Text;
-                            }
-                            else
-                            {
-                            row.Cells[modifier].Value = ChangeBox.Text;
-                            }
+                    using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        sb.AppendLine("Modified" + " " + ModList.Text + " " + "For Item ID" + " " + row.Cells[1].Value.ToString() + " From: " + row.Cells[modifier].Value.ToString()  + " To: " + ChangeBox.Text);
+                        sw.WriteLine(sb.ToString());
+                    }
+                    row.Cells[modifier].Value = ChangeBox.Text;
+                    
                 }
                     }
+            IDboxMod.Clear();
+            ChangeBox.Clear();
         }
 
 

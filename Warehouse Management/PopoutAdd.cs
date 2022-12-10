@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -14,7 +15,8 @@ namespace Warehouse_Management
     public partial class PopoutAdd : Form
     {
         private WarehouseApptest items;
-        int IDcount = 6;
+        
+        
 
         public PopoutAdd(WarehouseApptest fg)
         {
@@ -29,16 +31,29 @@ namespace Warehouse_Management
 
         private void ConfirmButtAdd_Click(object sender, EventArgs e)
         {
-            for (int i = items.ItemTable.Rows.Count - 1; i >= 0; i--)
+            items.ItemTable.Sort(items.ItemTable.Columns[1], ListSortDirection.Ascending);
+            int IDcount = 1;
+            for (int i = 0 ; i <= items.ItemTable.Rows.Count - 1; i++)
             {
-                DataGridViewRow row = items.ItemTable.Rows[i];
-                int rowID = Convert.ToInt32(row.Cells[1].Value);
-                if (rowID == IDcount)
-                {
-                    IDcount++;
-                }
+                    DataGridViewRow row = items.ItemTable.Rows[i];
+                    int rowID = Convert.ToInt32(row.Cells[1].Value);
+                    if (rowID == IDcount)
+                    {
+                        IDcount++;
+                    }
             }
-            items.ItemTable.Rows.Add(NameItemAdd.Text, IDcount.ToString(), QuantityNew.Text, CatNew.Text, CostNew.Text);
+            items.ItemTable.Rows.Add(NameItemAdd.Text, IDcount, QuantityNew.Text, CatNew.Text, CostNew.Text);
+            using(StreamWriter sw = new StreamWriter("Action log.txt", append: true))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine(NameItemAdd.Text + " " + IDcount + " " + QuantityNew.Text + " " + CatNew.Text + " " + CostNew.Text);
+                sw.WriteLine(sb.ToString());
+            }
+            items.ItemTable.Sort(items.ItemTable.Columns[1], ListSortDirection.Ascending);
+            NameItemAdd.Clear();
+            QuantityNew.Clear();
+            CatNew.Clear();
+            CostNew.Clear();
         }
 
         private void IDboxBuy_TextChanged(object sender, EventArgs e)

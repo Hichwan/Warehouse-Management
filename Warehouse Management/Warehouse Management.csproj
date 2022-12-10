@@ -53,6 +53,8 @@
     <Compile Include="AddMoney.Designer.cs">
       <DependentUpon>AddMoney.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="ItemClass.cs" />
     <Compile Include="ModifyItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +131,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Action Log.txt" />
     <Content Include="DecemberStatement.txt" />
     <Content Include="AccList.txt" />
   </ItemGroup>

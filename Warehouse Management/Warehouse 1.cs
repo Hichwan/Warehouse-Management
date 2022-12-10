@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,7 +77,7 @@ namespace Warehouse_Management
 
         private void BuyItem_Click(object sender, EventArgs e)
         {
-            Popout1 f2 = new Popout1();
+            Popout1 f2 = new Popout1(this);
             f2.Show();
         }
 
@@ -120,6 +121,12 @@ namespace Warehouse_Management
         {
             ModifyItems modify = new ModifyItems(this);
             modify.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("notepad.exe", "Action Log.txt");
+
         }
     }
 }

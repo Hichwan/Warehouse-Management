@@ -51,6 +51,7 @@ namespace Warehouse_Management
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.DeleteItem = new System.Windows.Forms.Button();
             this.ModifyButton = new System.Windows.Forms.Button();
+            this.ActionLog = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ItemTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -242,11 +243,22 @@ namespace Warehouse_Management
             this.ModifyButton.UseVisualStyleBackColor = true;
             this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
             // 
+            // ActionLog
+            // 
+            this.ActionLog.Location = new System.Drawing.Point(21, 104);
+            this.ActionLog.Name = "ActionLog";
+            this.ActionLog.Size = new System.Drawing.Size(113, 41);
+            this.ActionLog.TabIndex = 18;
+            this.ActionLog.Text = "View Action Log";
+            this.ActionLog.UseVisualStyleBackColor = true;
+            this.ActionLog.Click += new System.EventHandler(this.button1_Click);
+            // 
             // WarehouseApptest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ActionLog);
             this.Controls.Add(this.ModifyButton);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.LogOutButt);
@@ -296,6 +308,7 @@ namespace Warehouse_Management
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button DeleteItem;
         private System.Windows.Forms.Button ModifyButton;
+        private System.Windows.Forms.Button ActionLog;
     }
 }
 
