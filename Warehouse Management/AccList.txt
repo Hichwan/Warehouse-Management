@@ -1,4 +1,0 @@
-﻿Jonny 1 Guest 15000
-Hanson 2 3051 2500
-Sally 3 Password 0
-Boss 4 Boss 9999999

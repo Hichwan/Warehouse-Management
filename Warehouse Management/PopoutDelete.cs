@@ -33,23 +33,31 @@ namespace Warehouse_Management
 
         private void ConfirmButtDel_Click(object sender, EventArgs e)
         {
-            DeleteId = Int32.Parse(IDboxDel.Text);
-            for( int i = DeleteRow.ItemTable.Rows.Count-1; i >= 0; i--)
+            if (string.IsNullOrEmpty(IDboxDel.Text))
             {
-                DataGridViewRow row = DeleteRow.ItemTable.Rows[i];
-                int rowID = Convert.ToInt32(row.Cells[1].Value);
-                if (rowID == DeleteId)
-                {
-                    using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
-                    {
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine("Deleted:" + " " + row.Cells[0].Value.ToString() + " " + row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString() + " " + row.Cells[4].Value.ToString());
-                        sw.WriteLine(sb.ToString());
-                    }
-                    DeleteRow.ItemTable.Rows.RemoveAt(i);  
-                }
+                MessageBox.Show("Error No Value Placed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            IDboxDel.Clear();
+
+            else
+            {
+                DeleteId = Int32.Parse(IDboxDel.Text);
+                for (int i = DeleteRow.ItemTable.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = DeleteRow.ItemTable.Rows[i];
+                    int rowID = Convert.ToInt32(row.Cells[1].Value);
+                    if (rowID == DeleteId)
+                    {
+                        using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine("Deleted:" + " " + row.Cells[0].Value.ToString() + " " + row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString() + " " + row.Cells[4].Value.ToString());
+                            sw.WriteLine(sb.ToString());
+                        }
+                        DeleteRow.ItemTable.Rows.RemoveAt(i);
+                    }
+                }
+                IDboxDel.Clear();
+            }
         }
     }
 }

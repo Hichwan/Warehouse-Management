@@ -93,6 +93,7 @@ namespace Warehouse_Management
             this.ChangeBox.Name = "ChangeBox";
             this.ChangeBox.Size = new System.Drawing.Size(278, 20);
             this.ChangeBox.TabIndex = 7;
+            this.ChangeBox.TextChanged += new System.EventHandler(this.ChangeBox_TextChanged);
             // 
             // ModList
             // 

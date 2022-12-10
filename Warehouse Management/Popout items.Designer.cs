@@ -35,11 +35,14 @@ namespace Warehouse_Management
             this.IDITEMLAB = new System.Windows.Forms.Label();
             this.Quantlab = new System.Windows.Forms.Label();
             this.QuantityBuy = new System.Windows.Forms.TextBox();
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
+            this.CostEst = new System.Windows.Forms.Label();
+            this.EstCost = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ConfirmButtBuy
             // 
-            this.ConfirmButtBuy.Location = new System.Drawing.Point(25, 191);
+            this.ConfirmButtBuy.Location = new System.Drawing.Point(25, 275);
             this.ConfirmButtBuy.Name = "ConfirmButtBuy";
             this.ConfirmButtBuy.Size = new System.Drawing.Size(129, 36);
             this.ConfirmButtBuy.TabIndex = 0;
@@ -49,7 +52,7 @@ namespace Warehouse_Management
             // 
             // CancelButtCanc
             // 
-            this.CancelButtCanc.Location = new System.Drawing.Point(194, 193);
+            this.CancelButtCanc.Location = new System.Drawing.Point(194, 277);
             this.CancelButtCanc.Name = "CancelButtCanc";
             this.CancelButtCanc.Size = new System.Drawing.Size(109, 34);
             this.CancelButtCanc.TabIndex = 1;
@@ -92,12 +95,40 @@ namespace Warehouse_Management
             this.QuantityBuy.Name = "QuantityBuy";
             this.QuantityBuy.Size = new System.Drawing.Size(278, 20);
             this.QuantityBuy.TabIndex = 5;
+            this.QuantityBuy.TextChanged += new System.EventHandler(this.QuantityBuy_TextChanged);
+            // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
+            // CostEst
+            // 
+            this.CostEst.AutoSize = true;
+            this.CostEst.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CostEst.Location = new System.Drawing.Point(101, 183);
+            this.CostEst.Name = "CostEst";
+            this.CostEst.Size = new System.Drawing.Size(124, 18);
+            this.CostEst.TabIndex = 6;
+            this.CostEst.Text = "Estimated Cost";
+            this.CostEst.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // EstCost
+            // 
+            this.EstCost.Location = new System.Drawing.Point(27, 222);
+            this.EstCost.Name = "EstCost";
+            this.EstCost.ReadOnly = true;
+            this.EstCost.Size = new System.Drawing.Size(275, 20);
+            this.EstCost.TabIndex = 7;
             // 
             // Popout1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 253);
+            this.ClientSize = new System.Drawing.Size(328, 384);
+            this.Controls.Add(this.EstCost);
+            this.Controls.Add(this.CostEst);
             this.Controls.Add(this.QuantityBuy);
             this.Controls.Add(this.Quantlab);
             this.Controls.Add(this.IDITEMLAB);
@@ -119,5 +150,8 @@ namespace Warehouse_Management
         private System.Windows.Forms.Label IDITEMLAB;
         private System.Windows.Forms.Label Quantlab;
         private System.Windows.Forms.TextBox QuantityBuy;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
+        private System.Windows.Forms.Label CostEst;
+        private System.Windows.Forms.TextBox EstCost;
     }
 }

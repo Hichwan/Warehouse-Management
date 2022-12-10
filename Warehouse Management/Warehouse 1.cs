@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Warehouse_Management
 {
@@ -25,12 +26,20 @@ namespace Warehouse_Management
 
         private void Form1_Load(object sender, EventArgs e)
         {
- 
-            ItemTable.Rows.Add("Scapel Blade #10", 1, 1500, "Surgery", 1.50);
-            ItemTable.Rows.Add("Medium Gloves", 2, 350, "General", 10);
-            ItemTable.Rows.Add("3cc syringe", 3, 3000, "Surgery", 0.50);
-            ItemTable.Rows.Add("Baytril 68mg Inj", 4, 150, "Medicine", 37);
-            ItemTable.Rows.Add("LRS 500mL Bag", 5, 250, "Medicine", 50);
+            string[] lines = File.ReadAllLines("Items List.txt");
+            string[] values;
+
+            for (int i = 0; i <lines.Length; i++)
+            {
+                values = lines[i].ToString().Split(',');
+                string[] row = new string[values.Length];
+
+                for (int j = 0; j< values.Length; j++)
+                {
+                    row[j] = values[j].Trim();
+                }
+                ItemTable.Rows.Add(row);
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -72,6 +81,10 @@ namespace Warehouse_Management
 
         private void Statement_SelectedIndexChanged(object sender, EventArgs e)
         {
+            String statement = Statement.Text;
+            StatementForm f2 = new StatementForm();
+            f2.Month = statement;
+            f2.Show();
 
         }
 
@@ -99,12 +112,20 @@ namespace Warehouse_Management
         public void LogInButt_Click(object sender, EventArgs e)
         {
             var account1 = new Account();
-            account1.Name = UsernameBox.Text;
-            UsernameBox.Clear();
+            account1.getsAccounts();
+            account1.Name = UsernameBox.Text;         
             account1.Password = PasswordBox.Text;
+            if (Array.IndexOf(account1.users.ToArray(), account1.Name) == Array.IndexOf(account1.passwords.ToArray(), account1.Password))
+            {
+                WelcomeBox.Text = "Welcome " + account1.Name + "!";
+            }
+            else
+            {
+                MessageBox.Show("Wrong User or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            UsernameBox.Clear();
             PasswordBox.Clear();
-            WelcomeBox.Text = "Welcome " + account1.Name + "!";
-         }
+        }
     
 
         private void LogOutButt_Click(object sender, EventArgs e)

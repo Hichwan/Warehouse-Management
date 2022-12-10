@@ -67,28 +67,38 @@ namespace Warehouse_Management
         }
         private void ConfirmButtBuy_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(IDboxMod.Text) || string.IsNullOrEmpty(ChangeBox.Text))
+            {
+                MessageBox.Show("Error No Value Placed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            int ChangeID = Int32.Parse(IDboxMod.Text);
-                    for (int i = ModItem.ItemTable.Rows.Count-1; i >= 0; i--)
+            else
+            {
+                int ChangeID = Int32.Parse(IDboxMod.Text);
+                for (int i = ModItem.ItemTable.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = ModItem.ItemTable.Rows[i];
+                    int rowID = Convert.ToInt32(row.Cells[1].Value);
+                    if (rowID == ChangeID)
                     {
-                        DataGridViewRow row = ModItem.ItemTable.Rows[i];
-                        int rowID = Convert.ToInt32(row.Cells[1].Value);
-                        if (rowID == ChangeID)
+                        using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
                         {
-                    using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
-                    {
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine("Modified" + " " + ModList.Text + " " + "For Item ID" + " " + row.Cells[1].Value.ToString() + " From: " + row.Cells[modifier].Value.ToString()  + " To: " + ChangeBox.Text);
-                        sw.WriteLine(sb.ToString());
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine("Modified" + " " + ModList.Text + " " + "For Item ID" + " " + row.Cells[1].Value.ToString() + " From: " + row.Cells[modifier].Value.ToString() + " To: " + ChangeBox.Text);
+                            sw.WriteLine(sb.ToString());
+                        }
+                        row.Cells[modifier].Value = ChangeBox.Text;
+
                     }
-                    row.Cells[modifier].Value = ChangeBox.Text;
-                    
                 }
-                    }
-            IDboxMod.Clear();
-            ChangeBox.Clear();
+                IDboxMod.Clear();
+                ChangeBox.Clear();
+            }
         }
 
+        private void ChangeBox_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -31,29 +31,44 @@ namespace Warehouse_Management
 
         private void ConfirmButtAdd_Click(object sender, EventArgs e)
         {
-            items.ItemTable.Sort(items.ItemTable.Columns[1], ListSortDirection.Ascending);
-            int IDcount = 1;
-            for (int i = 0 ; i <= items.ItemTable.Rows.Count - 1; i++)
+            if (string.IsNullOrEmpty(NameItemAdd.Text) || string.IsNullOrEmpty(QuantityNew.Text) || string.IsNullOrEmpty(CatNew.Text) || string.IsNullOrEmpty(CostNew.Text))
             {
+                MessageBox.Show("Error No Value Placed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+
+//                items.ItemTable.Sort(items.ItemTable.Columns[1], ListSortDirection.Ascending);
+                int IDcount = 1;
+                for (int i = 0; i <= items.ItemTable.Rows.Count - 1; i++)
+                {
                     DataGridViewRow row = items.ItemTable.Rows[i];
                     int rowID = Convert.ToInt32(row.Cells[1].Value);
                     if (rowID == IDcount)
                     {
                         IDcount++;
                     }
+                }
+                items.ItemTable.Rows.Add(NameItemAdd.Text, IDcount, QuantityNew.Text, CatNew.Text, CostNew.Text);
+                using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine(NameItemAdd.Text + " " + IDcount + " " + QuantityNew.Text + " " + CatNew.Text + " " + CostNew.Text);
+                    sw.WriteLine(sb.ToString());
+                }
+                using (StreamWriter sw2 = new StreamWriter("Items List.txt", append: true))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine(NameItemAdd.Text+","+IDcount+","+QuantityNew.Text+","+CatNew.Text+","+CostNew.Text);
+                    sw2.Write(sb.ToString());
+                }
+                // items.ItemTable.Sort(items.ItemTable.Columns[1], ListSortDirection.Ascending);
+                NameItemAdd.Clear();
+                QuantityNew.Clear();
+                CatNew.Clear();
+                CostNew.Clear();
             }
-            items.ItemTable.Rows.Add(NameItemAdd.Text, IDcount, QuantityNew.Text, CatNew.Text, CostNew.Text);
-            using(StreamWriter sw = new StreamWriter("Action log.txt", append: true))
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine(NameItemAdd.Text + " " + IDcount + " " + QuantityNew.Text + " " + CatNew.Text + " " + CostNew.Text);
-                sw.WriteLine(sb.ToString());
-            }
-            items.ItemTable.Sort(items.ItemTable.Columns[1], ListSortDirection.Ascending);
-            NameItemAdd.Clear();
-            QuantityNew.Clear();
-            CatNew.Clear();
-            CostNew.Clear();
         }
 
         private void IDboxBuy_TextChanged(object sender, EventArgs e)
