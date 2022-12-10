@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml.Linq;
 
 namespace Warehouse_Management
 {
@@ -40,6 +41,12 @@ namespace Warehouse_Management
                 }
                 ItemTable.Rows.Add(row);
             }
+            ActionLog.Hide();
+            AddItem.Hide();
+            DeleteItem.Hide();
+            ModifyButton.Hide();
+            BuyItem.Enabled = false;
+            AddMoney.Enabled = false;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -96,7 +103,12 @@ namespace Warehouse_Management
 
         private void AddMoney_Click(object sender, EventArgs e)
         {
-
+//            var account3 = new Account();
+//            Double balance = Convert.ToDouble(account3.Balance);
+            Double balance = Convert.ToDouble(Balance.Text);
+            AddMoney f2 = new AddMoney(this);   
+            f2.startbalance = balance;
+            f2.Show();
         }
 
         private void UsernameBox_TextChanged(object sender, EventArgs e)
@@ -118,6 +130,38 @@ namespace Warehouse_Management
             if (Array.IndexOf(account1.users.ToArray(), account1.Name) == Array.IndexOf(account1.passwords.ToArray(), account1.Password))
             {
                 WelcomeBox.Text = "Welcome " + account1.Name + "!";
+                for( var i = 0; i < account1.users.Count; i++)
+                {
+                    if (account1.users[i] == account1.Name)
+                    {
+                        account1.Balance = account1.balance[i];
+                        account1.UserID = account1.ID[i];
+                    }
+                }
+                Balance.Text = account1.Balance;
+                int accounttype = Convert.ToInt32(account1.UserID);
+                if (accounttype <= 2)
+                {
+                    BuyItem.Enabled = true;
+                    AddMoney.Enabled = true;
+                }
+                if (accounttype == 3)
+                {
+                    AddItem.Show();
+                    DeleteItem.Show();
+                    ModifyButton.Show();
+                    BuyItem.Enabled = true;
+                    AddMoney.Enabled = true;
+                }
+                else
+                {
+                    ActionLog.Show();
+                    AddItem.Show();
+                    DeleteItem.Show();
+                    ModifyButton.Show();
+                    BuyItem.Enabled = true;
+                    AddMoney.Enabled = true;
+                }
             }
             else
             {
@@ -135,7 +179,16 @@ namespace Warehouse_Management
             account2.Name = "";
             PasswordBox.Text = string.Empty;
             account2.Password = "";
+            account2.UserID = "";
+            account2.Balance = "";
+            Balance.Clear();
             WelcomeBox.Clear();
+            ActionLog.Hide();
+            AddItem.Hide();
+            DeleteItem.Hide();
+            ModifyButton.Hide();
+            BuyItem.Enabled = false;
+            AddMoney.Enabled = false;
         }
 
         private void ModifyButton_Click(object sender, EventArgs e)
@@ -147,6 +200,11 @@ namespace Warehouse_Management
         private void button1_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("notepad.exe", "Action Log.txt");
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
 
         }
     }

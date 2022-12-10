@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Warehouse_Management
     {
         private string _name;
         private string _password;
+        private string _ID;
+        private string _balance;
         public List<string> users = new List<string>();
         public List<string> ID = new List<string>();
         public List<string> passwords = new List<string>();
@@ -42,6 +45,9 @@ namespace Warehouse_Management
         }
         public string Password { get => _password; set => _password = value; }
 
+        public string UserID { get => _ID; set => _ID = value; }
+
+        public string Balance { get => _balance; set => _balance = value; }
         public Account()
         {
 

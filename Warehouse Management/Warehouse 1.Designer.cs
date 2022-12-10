@@ -52,6 +52,8 @@ namespace Warehouse_Management
             this.DeleteItem = new System.Windows.Forms.Button();
             this.ModifyButton = new System.Windows.Forms.Button();
             this.ActionLog = new System.Windows.Forms.Button();
+            this.BalanceLabel = new System.Windows.Forms.Label();
+            this.Balance = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ItemTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -253,11 +255,34 @@ namespace Warehouse_Management
             this.ActionLog.UseVisualStyleBackColor = true;
             this.ActionLog.Click += new System.EventHandler(this.button1_Click);
             // 
+            // BalanceLabel
+            // 
+            this.BalanceLabel.AutoSize = true;
+            this.BalanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceLabel.Location = new System.Drawing.Point(336, 234);
+            this.BalanceLabel.Name = "BalanceLabel";
+            this.BalanceLabel.Size = new System.Drawing.Size(176, 29);
+            this.BalanceLabel.TabIndex = 19;
+            this.BalanceLabel.Text = "User Balance:";
+            // 
+            // Balance
+            // 
+            this.Balance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Balance.Location = new System.Drawing.Point(350, 277);
+            this.Balance.Name = "Balance";
+            this.Balance.ReadOnly = true;
+            this.Balance.Size = new System.Drawing.Size(153, 26);
+            this.Balance.TabIndex = 20;
+            this.Balance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Balance.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
             // WarehouseApptest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Balance);
+            this.Controls.Add(this.BalanceLabel);
             this.Controls.Add(this.ActionLog);
             this.Controls.Add(this.ModifyButton);
             this.Controls.Add(this.textBox4);
@@ -309,6 +334,8 @@ namespace Warehouse_Management
         private System.Windows.Forms.Button DeleteItem;
         private System.Windows.Forms.Button ModifyButton;
         private System.Windows.Forms.Button ActionLog;
+        private System.Windows.Forms.Label BalanceLabel;
+        public System.Windows.Forms.TextBox Balance;
     }
 }
 

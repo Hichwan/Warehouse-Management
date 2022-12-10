@@ -30,9 +30,10 @@ namespace Warehouse_Management
         private void InitializeComponent()
         {
             this.CancelButtCanc = new System.Windows.Forms.Button();
-            this.ConfirmButtBuy = new System.Windows.Forms.Button();
+            this.ConfirmButtMoney = new System.Windows.Forms.Button();
             this.MoneyAsk = new System.Windows.Forms.Label();
             this.MoneyAdd = new System.Windows.Forms.TextBox();
+            this.CurrentBalance = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // CancelButtCanc
@@ -45,14 +46,15 @@ namespace Warehouse_Management
             this.CancelButtCanc.UseVisualStyleBackColor = true;
             this.CancelButtCanc.Click += new System.EventHandler(this.CancelButtCanc_Click);
             // 
-            // ConfirmButtBuy
+            // ConfirmButtMoney
             // 
-            this.ConfirmButtBuy.Location = new System.Drawing.Point(32, 180);
-            this.ConfirmButtBuy.Name = "ConfirmButtBuy";
-            this.ConfirmButtBuy.Size = new System.Drawing.Size(129, 36);
-            this.ConfirmButtBuy.TabIndex = 3;
-            this.ConfirmButtBuy.Text = "Confirm";
-            this.ConfirmButtBuy.UseVisualStyleBackColor = true;
+            this.ConfirmButtMoney.Location = new System.Drawing.Point(32, 180);
+            this.ConfirmButtMoney.Name = "ConfirmButtMoney";
+            this.ConfirmButtMoney.Size = new System.Drawing.Size(129, 36);
+            this.ConfirmButtMoney.TabIndex = 3;
+            this.ConfirmButtMoney.Text = "Confirm";
+            this.ConfirmButtMoney.UseVisualStyleBackColor = true;
+            this.ConfirmButtMoney.Click += new System.EventHandler(this.ConfirmButtBuy_Click);
             // 
             // MoneyAsk
             // 
@@ -71,18 +73,29 @@ namespace Warehouse_Management
             this.MoneyAdd.Name = "MoneyAdd";
             this.MoneyAdd.Size = new System.Drawing.Size(278, 20);
             this.MoneyAdd.TabIndex = 6;
+            this.MoneyAdd.TextChanged += new System.EventHandler(this.MoneyAdd_TextChanged);
+            // 
+            // CurrentBalance
+            // 
+            this.CurrentBalance.Location = new System.Drawing.Point(32, 28);
+            this.CurrentBalance.Name = "CurrentBalance";
+            this.CurrentBalance.ReadOnly = true;
+            this.CurrentBalance.Size = new System.Drawing.Size(275, 20);
+            this.CurrentBalance.TabIndex = 8;
             // 
             // AddMoney
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 288);
+            this.Controls.Add(this.CurrentBalance);
             this.Controls.Add(this.MoneyAdd);
             this.Controls.Add(this.MoneyAsk);
-            this.Controls.Add(this.ConfirmButtBuy);
+            this.Controls.Add(this.ConfirmButtMoney);
             this.Controls.Add(this.CancelButtCanc);
             this.Name = "AddMoney";
             this.Text = "Add Funds";
+            this.Load += new System.EventHandler(this.AddMoney_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,8 +104,9 @@ namespace Warehouse_Management
         #endregion
 
         private System.Windows.Forms.Button CancelButtCanc;
-        private System.Windows.Forms.Button ConfirmButtBuy;
+        private System.Windows.Forms.Button ConfirmButtMoney;
         private System.Windows.Forms.Label MoneyAsk;
         private System.Windows.Forms.TextBox MoneyAdd;
+        private System.Windows.Forms.TextBox CurrentBalance;
     }
 }
