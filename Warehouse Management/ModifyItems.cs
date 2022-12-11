@@ -64,18 +64,10 @@ namespace Warehouse_Management
                     int rowID = Convert.ToInt32(row.Cells[1].Value);
                     if (rowID == ChangeID)
                     {
-                        using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
-                        {
-                            StringBuilder sb = new StringBuilder();
-                            sb.AppendLine("User #:" + AccountID + " Modified" + " " + ModList.Text + " " + "For Item ID" + " " + row.Cells[1].Value.ToString() + " From: " + row.Cells[modifier].Value.ToString() + " To: " + ChangeBox.Text);
-                            sw.WriteLine(sb.ToString());
-                        }
-                        row.Cells[modifier].Value = ChangeBox.Text;
-                        string[] arrLine2 = File.ReadAllLines("Items List.txt");
-                        StringBuilder sb4 = new StringBuilder();
-                        sb4.Append(row.Cells[0].Value.ToString() + "," + Convert.ToInt32(row.Cells[1].Value) + "," + row.Cells[2].Value + "," + row.Cells[3].Value.ToString() + "," + row.Cells[4].Value.ToString());
-                        arrLine2[Convert.ToInt32(row.Cells[1].Value) - 1] = sb4.ToString();
-                        File.WriteAllLines("Items List.txt", arrLine2);
+                        var items1 = new Changes();
+                        items1.ModifyChange(Convert.ToInt32(AccountID), Convert.ToString(ModList.Text), Convert.ToInt32(row.Cells[1].Value), row.Cells[modifier].Value.ToString(), Convert.ToString(ChangeBox.Text));
+                        row.Cells[modifier].Value = ChangeBox.Text;                        
+                        items1.ModifyChange(row.Cells[0].Value.ToString(), Convert.ToInt32(row.Cells[1].Value), Convert.ToInt32(row.Cells[2].Value), row.Cells[3].Value.ToString(), Convert.ToDouble(row.Cells[4].Value));
                         this.Close();
                     }
                 }

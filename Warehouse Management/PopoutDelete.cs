@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Warehouse_Management
 {
@@ -36,6 +38,7 @@ namespace Warehouse_Management
 
             else
             {
+                DeleteRow.ItemTable.Sort(DeleteRow.ItemTable.Columns[1], ListSortDirection.Ascending);
                 DeleteId = Int32.Parse(IDboxDel.Text);
                 for (int i = DeleteRow.ItemTable.Rows.Count - 1; i >= 0; i--)
                 {
@@ -43,13 +46,11 @@ namespace Warehouse_Management
                     int rowID = Convert.ToInt32(row.Cells[1].Value);
                     if (rowID == DeleteId)
                     {
-                        using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
-                        {
-                            StringBuilder sb = new StringBuilder();
-                            sb.AppendLine("User #:" + AccountID + " Deleted:" + " " + row.Cells[0].Value.ToString() + " " + row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString() + " " + row.Cells[4].Value.ToString());
-                            sw.WriteLine(sb.ToString());
-                        }
+                        var items1 = new Changes();
+                        items1.DeleteChange(AccountID, row.Cells[0].Value.ToString(), Convert.ToInt32(row.Cells[1].Value), Convert.ToInt32(row.Cells[2].Value), row.Cells[3].Value.ToString(), Convert.ToDouble(row.Cells[4].Value));
                         DeleteRow.ItemTable.Rows.RemoveAt(i);
+                        items1.DeleteChange(DeleteId);                        
+                        DeleteRow.ItemTable.Sort(DeleteRow.ItemTable.Columns[1], ListSortDirection.Ascending);
                     }
                 }
                 IDboxDel.Clear();

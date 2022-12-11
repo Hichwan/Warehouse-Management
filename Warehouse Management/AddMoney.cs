@@ -39,12 +39,8 @@ namespace Warehouse_Management
             double amount = Convert.ToDouble(MoneyAdd.Text);
             double total = amount + startbalance;
             AddBalance.Balance.Text = total.ToString();
-            using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("User #:" + AccountID + " Added: " + amount + " to account.");
-                sw.WriteLine(sb.ToString());
-            }
+            var items1 = new Changes();
+            items1.BalanceChange(AccountID, amount);
             string[] arrLine = File.ReadAllLines("AccountList.txt");
             StringBuilder sb2 = new StringBuilder();
             sb2.Append(Username + " " + AccountID + " " + UserPass + " " + total);

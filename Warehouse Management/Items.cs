@@ -16,6 +16,7 @@ namespace Warehouse_Management
         private string _quantity;
         public List<string> Name = new List<string>();
         public List<string> ItemID = new List<string>();
+
         public List<string> Quantity = new List<string>();
         public List<string> Category = new List<string>();
         public List<string> Price = new List<string>();
@@ -35,6 +36,9 @@ namespace Warehouse_Management
             }
             sr.Close();
         }
+        
+        
+
         public string ItemName
         {
             get
@@ -90,5 +94,10 @@ namespace Warehouse_Management
                 _price = value;
             }
         }
+        public Items()
+        {
+
+        }
+
     }
 }

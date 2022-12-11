@@ -55,6 +55,7 @@
       <DependentUpon>AddMoney.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminAccount.cs" />
+    <Compile Include="Items Changes.cs" />
     <Compile Include="SupplierAccount.cs" />
     <Compile Include="StatementForm.cs">
       <SubType>Form</SubType>

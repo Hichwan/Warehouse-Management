@@ -39,7 +39,7 @@ namespace Warehouse_Management
                 Items1.ItemCategory = Items1.Category[i];
                 Items1.ItemQuantity = Items1.Quantity[i];
                 Items1.ItemPrice = Items1.Price[i];
-                ItemTable.Rows.Add(Items1.ItemName, Items1.ID, Items1.ItemQuantity, Items1.ItemCategory, Items1.ItemPrice);
+                ItemTable.Rows.Add(Items1.ItemName, Convert.ToInt32(Items1.ID), Items1.ItemQuantity, Items1.ItemCategory, Items1.ItemPrice);
             }
             ActionLog.Hide();
             AddItem.Hide();
@@ -168,8 +168,10 @@ namespace Warehouse_Management
             AddItem.Hide();
             DeleteItem.Hide();
             ModifyButton.Hide();
+            AccountList.Hide();
             BuyItem.Enabled = false;
             AddMoney.Enabled = false;
+            Statement.Enabled = false;
         }
 
         private void ModifyButton_Click(object sender, EventArgs e)

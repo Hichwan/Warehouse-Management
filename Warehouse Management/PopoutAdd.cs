@@ -39,7 +39,7 @@ namespace Warehouse_Management
             else
             {
 
-//                items.ItemTable.Sort(items.ItemTable.Columns[1], ListSortDirection.Ascending);
+                items.ItemTable.Sort(items.ItemTable.Columns[1], ListSortDirection.Ascending);
                 int IDcount = 1;
                 for (int i = 0; i <= items.ItemTable.Rows.Count - 1; i++)
                 {
@@ -51,19 +51,10 @@ namespace Warehouse_Management
                     }
                 }
                 items.ItemTable.Rows.Add(NameItemAdd.Text, IDcount, QuantityNew.Text, CatNew.Text, CostNew.Text);
-                using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.AppendLine("User #:" + AccountID + " Added: " + NameItemAdd.Text + " " + IDcount + " " + QuantityNew.Text + " " + CatNew.Text + " " + CostNew.Text);
-                    sw.WriteLine(sb.ToString());
-                }
-                using (StreamWriter sw2 = new StreamWriter("Items List.txt", append: true))
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.AppendLine(NameItemAdd.Text+","+IDcount+","+QuantityNew.Text+","+CatNew.Text+","+CostNew.Text);
-                    sw2.Write(sb.ToString());
-                }
-                // items.ItemTable.Sort(items.ItemTable.Columns[1], ListSortDirection.Ascending);
+                var items1 = new Changes();
+                items1.AddChange(AccountID, Convert.ToString(NameItemAdd.Text), IDcount, Convert.ToString(QuantityNew.Text), Convert.ToString(CatNew.Text), Convert.ToString(CostNew.Text));
+                items1.AddChange(Convert.ToString(NameItemAdd.Text), IDcount, Convert.ToString(QuantityNew.Text), Convert.ToString(CatNew.Text), Convert.ToString(CostNew.Text));
+                items.ItemTable.Sort(items.ItemTable.Columns[1], ListSortDirection.Ascending);
                 NameItemAdd.Clear();
                 QuantityNew.Clear();
                 CatNew.Clear();

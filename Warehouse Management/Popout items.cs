@@ -36,7 +36,7 @@ namespace Warehouse_Management
 
             else
             {
-                var statement1 = new Statement();
+                var statement1 = new Transaction();
                 statement1.ItemID = Int32.Parse(IDboxBuy.Text);
                 int quantity = Int32.Parse(QuantityBuy.Text);
                 for (int i = BuyItem.ItemTable.Rows.Count - 1; i >= 0; i--)
@@ -66,35 +66,14 @@ namespace Warehouse_Management
                                 statement1.ItemName = row.Cells[0].Value.ToString();
                                 statement1.ItemQuantity = Convert.ToInt32(QuantityBuy.Text);
                                 statement1.ItemPrice = Convert.ToDouble(row.Cells[4].Value);
-                                using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
-                                {
-                                    StringBuilder sb = new StringBuilder();
-                                    StringBuilder sb2 = new StringBuilder();
-                                    sb.AppendLine("User #:" + AccountID + " For Item ID: " + row.Cells[1].Value.ToString() + ", " + QuantityBuy.Text + " Have been bought for a new total of: " + startquant + " Total selling price: " + totalcost);
-                                    sb2.AppendLine("User #:" + AccountID + " Has A New Balance Of: " + checkbalance + " From: " + startbalance);
-                                    sw.Write(sb.ToString());
-                                    sw.WriteLine(sb2.ToString());
-                                }
-                                /*                               using (StreamWriter sw2 = new StreamWriter("December.txt", append: true))
-                                                               {
-                                                                   StringBuilder sb4 = new StringBuilder();
-                                                                   sb4.AppendLine(row.Cells[0].Value.ToString() + "," + row.Cells[1].Value.ToString() + "," + row.Cells[4].Value.ToString() + "," + QuantityBuy.Text + "," + totalcost);
-                                                                   sw2.Write(sb4.ToString());
-                                                               }
-                                */
+                                statement1.Itemcategory = row.Cells[3].Value.ToString();
+                                statement1.ItemendQuantity = Convert.ToInt32(row.Cells[2].Value);
+                                var items1 = new Changes();
+                                items1.BuyChangeLog(AccountID, Convert.ToInt32(row.Cells[1].Value), Convert.ToInt32(QuantityBuy.Text), startquant, totalcost, checkbalance, startbalance);
                                 statement1.WriteStatementLog();
                                 BuyItem.Balance.Text = Convert.ToString(checkbalance);
-                                string[] arrLine = File.ReadAllLines("AccountList.txt");
-                                StringBuilder sb3 = new StringBuilder();
-                                sb3.Append(Username + " " + AccountID + " " + UserPass + " " + checkbalance);
-                                arrLine[AccountID - 1] = sb3.ToString();
-                                File.WriteAllLines("AccountList.txt", arrLine);
-
-                                string[] arrLine2 = File.ReadAllLines("Items List.txt");
-                                StringBuilder sb4 = new StringBuilder();
-                                sb4.Append(statement1.ItemName + "," + statement1.ItemID + "," + row.Cells[2].Value + "," + row.Cells[3].Value.ToString() + "," + statement1.ItemPrice);
-                                arrLine2[statement1.ItemID - 1] = sb4.ToString();
-                                File.WriteAllLines("Items List.txt", arrLine2);
+                                statement1.ModifyAccount(Username, AccountID, UserPass, checkbalance);
+                                statement1.ModifyItemList();
                                 this.Close();
                             }
                         }

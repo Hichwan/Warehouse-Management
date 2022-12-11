@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,29 +10,26 @@ namespace Warehouse_Management
 {
     class Statement
     {
-        private string _itemname;
-        private double _total;
-        private int _itemid;
-        private int _itemQuantity;
-        private double _itemprice;
+        public string _itemname;
+        public double _total;
+        public int _itemid;
+        public int _itemQuantity;
+        public double _itemprice;
+        public string _itemcategory;
+        public int _itemendQuantity;
         public string ItemName { get => _itemname; set => _itemname = value; }
         public double Total { get => _total; set => _total = value; }
         public int ItemID { get => _itemid; set => _itemid = value; }
         public int ItemQuantity { get => _itemQuantity; set => _itemQuantity = value; }
         public double ItemPrice { get => _itemprice; set => _itemprice = value; }
+        public string Itemcategory { get => _itemcategory; set => _itemcategory = value; }
 
+        public int ItemendQuantity { get => _itemendQuantity; set => _itemendQuantity = value; }
         public Statement() 
         { 
 
         }
-        public void WriteStatementLog()
-        {
-            using (StreamWriter sw2 = new StreamWriter("December.txt", append: true))
-            {
-                StringBuilder sb4 = new StringBuilder();
-                sb4.AppendLine(_itemname + "," + _itemid + "," + _itemprice + "," + _itemQuantity + "," + _total);
-                sw2.Write(sb4.ToString());
-            }
-        }
+
+
     }
 }
