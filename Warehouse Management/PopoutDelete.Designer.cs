@@ -52,6 +52,7 @@ namespace Warehouse_Management
             this.IDboxDel.Size = new System.Drawing.Size(278, 20);
             this.IDboxDel.TabIndex = 5;
             this.IDboxDel.TextChanged += new System.EventHandler(this.IDboxDel_TextChanged);
+            this.IDboxDel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDboxDel_KeyPress);
             // 
             // ConfirmButtDel
             // 

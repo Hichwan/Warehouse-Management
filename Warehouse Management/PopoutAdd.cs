@@ -15,8 +15,8 @@ namespace Warehouse_Management
     public partial class PopoutAdd : Form
     {
         private WarehouseApptest items;
-        
-        
+        public int AccountID { get; set; }
+
 
         public PopoutAdd(WarehouseApptest fg)
         {
@@ -54,7 +54,7 @@ namespace Warehouse_Management
                 using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
                 {
                     StringBuilder sb = new StringBuilder();
-                    sb.AppendLine(NameItemAdd.Text + " " + IDcount + " " + QuantityNew.Text + " " + CatNew.Text + " " + CostNew.Text);
+                    sb.AppendLine("User #:" + AccountID + " Added: " + NameItemAdd.Text + " " + IDcount + " " + QuantityNew.Text + " " + CatNew.Text + " " + CostNew.Text);
                     sw.WriteLine(sb.ToString());
                 }
                 using (StreamWriter sw2 = new StreamWriter("Items List.txt", append: true))
@@ -69,25 +69,6 @@ namespace Warehouse_Management
                 CatNew.Clear();
                 CostNew.Clear();
             }
-        }
-
-        private void IDboxBuy_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void QuantityNew_KeyPress(object sender, KeyPressEventArgs e)
@@ -112,6 +93,25 @@ namespace Warehouse_Management
                 e.Handled = true;
                 MessageBox.Show("Only numeric input is accepted");
             }
+
+        }
+
+        private void IDboxBuy_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

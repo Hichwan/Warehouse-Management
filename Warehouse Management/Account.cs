@@ -32,6 +32,7 @@ namespace Warehouse_Management
                 passwords.Add(components[2]);
                 balance.Add(components[3]);
             }
+            sr.Close();
         }
         public string Name { 
             get
@@ -52,5 +53,14 @@ namespace Warehouse_Management
         {
 
         }
+
+ /*       public Account(Account previousAccount)
+        {
+            Name = previousAccount.Name;
+            Password = previousAccount.Password;
+            UserID= previousAccount.UserID;
+            Balance= previousAccount.Balance;
+        }
+ */
     }
 }

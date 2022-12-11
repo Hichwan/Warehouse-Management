@@ -86,6 +86,7 @@ namespace Warehouse_Management
             this.IDboxMod.Size = new System.Drawing.Size(278, 20);
             this.IDboxMod.TabIndex = 6;
             this.IDboxMod.TextChanged += new System.EventHandler(this.IDboxMod_TextChanged);
+            this.IDboxMod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDboxMod_KeyPress);
             // 
             // ChangeBox
             // 
@@ -94,9 +95,11 @@ namespace Warehouse_Management
             this.ChangeBox.Size = new System.Drawing.Size(278, 20);
             this.ChangeBox.TabIndex = 7;
             this.ChangeBox.TextChanged += new System.EventHandler(this.ChangeBox_TextChanged);
+            this.ChangeBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ChangeBox_KeyPress);
             // 
             // ModList
             // 
+            this.ModList.AllowDrop = true;
             this.ModList.FormattingEnabled = true;
             this.ModList.Items.AddRange(new object[] {
             "Name",

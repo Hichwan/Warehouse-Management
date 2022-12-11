@@ -15,6 +15,10 @@ namespace Warehouse_Management
     {
         private WarehouseApptest AddBalance;
         public double startbalance { get; set; }
+        public int AccountID { get; set; }
+        public string Username { get; set; }
+        public string UserPass { get; set; }
+
         public AddMoney(WarehouseApptest addBalance)
         {
             InitializeComponent();
@@ -25,19 +29,9 @@ namespace Warehouse_Management
             CurrentBalance.Text = Convert.ToString(startbalance);
         }
 
-        private void IDITEMLAB_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CancelButtCanc_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void MoneyAdd_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void ConfirmButtBuy_Click(object sender, EventArgs e)
@@ -48,12 +42,38 @@ namespace Warehouse_Management
             using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
             {
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine("Added: " + amount + " to account.");
+                sb.AppendLine("User #:" + AccountID + " Added: " + amount + " to account.");
                 sw.WriteLine(sb.ToString());
             }
+            string[] arrLine = File.ReadAllLines("AccountList.txt");
+            StringBuilder sb2 = new StringBuilder();
+            sb2.Append(Username + " " + AccountID + " " + UserPass + " " + total);
+            arrLine[AccountID - 1] = sb2.ToString();
+            File.WriteAllLines("AccountList.txt", arrLine);
             this.Close();
         }
 
+        private void MoneyAdd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool isNumber = Char.IsNumber(e.KeyChar);
+            if (e.KeyChar == '.')
+            {
+                isNumber = !(sender as TextBox).Text.Contains(".");
+            }
+            if (!isNumber)
+            {
+                e.Handled = true;
+                MessageBox.Show("Only numeric input is accepted");
+            }
+        }
+        private void MoneyAdd_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void IDITEMLAB_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

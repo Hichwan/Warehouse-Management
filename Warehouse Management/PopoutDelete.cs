@@ -15,6 +15,7 @@ namespace Warehouse_Management
     {
         private WarehouseApptest DeleteRow;
         int DeleteId;
+        public int AccountID { get; set; }
         public PopoutDelete(WarehouseApptest deleterow)
         {
             InitializeComponent();
@@ -24,11 +25,6 @@ namespace Warehouse_Management
         private void CancelButtDel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void IDboxDel_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void ConfirmButtDel_Click(object sender, EventArgs e)
@@ -50,7 +46,7 @@ namespace Warehouse_Management
                         using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
                         {
                             StringBuilder sb = new StringBuilder();
-                            sb.AppendLine("Deleted:" + " " + row.Cells[0].Value.ToString() + " " + row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString() + " " + row.Cells[4].Value.ToString());
+                            sb.AppendLine("User #:" + AccountID + " Deleted:" + " " + row.Cells[0].Value.ToString() + " " + row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString() + " " + row.Cells[4].Value.ToString());
                             sw.WriteLine(sb.ToString());
                         }
                         DeleteRow.ItemTable.Rows.RemoveAt(i);
@@ -58,6 +54,20 @@ namespace Warehouse_Management
                 }
                 IDboxDel.Clear();
             }
+        }
+
+        private void IDboxDel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool isNumber = Char.IsNumber(e.KeyChar);
+            if (!isNumber)
+            {
+                e.Handled = true;
+                MessageBox.Show("Only numeric input is accepted");
+            }
+        }
+        private void IDboxDel_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

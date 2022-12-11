@@ -54,6 +54,7 @@ namespace Warehouse_Management
             this.ActionLog = new System.Windows.Forms.Button();
             this.BalanceLabel = new System.Windows.Forms.Label();
             this.Balance = new System.Windows.Forms.TextBox();
+            this.AccountList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ItemTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -276,11 +277,22 @@ namespace Warehouse_Management
             this.Balance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Balance.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
+            // AccountList
+            // 
+            this.AccountList.Location = new System.Drawing.Point(21, 161);
+            this.AccountList.Name = "AccountList";
+            this.AccountList.Size = new System.Drawing.Size(113, 41);
+            this.AccountList.TabIndex = 21;
+            this.AccountList.Text = "View Account List";
+            this.AccountList.UseVisualStyleBackColor = true;
+            this.AccountList.Click += new System.EventHandler(this.AccountList_Click);
+            // 
             // WarehouseApptest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.AccountList);
             this.Controls.Add(this.Balance);
             this.Controls.Add(this.BalanceLabel);
             this.Controls.Add(this.ActionLog);
@@ -336,6 +348,7 @@ namespace Warehouse_Management
         private System.Windows.Forms.Button ActionLog;
         private System.Windows.Forms.Label BalanceLabel;
         public System.Windows.Forms.TextBox Balance;
+        private System.Windows.Forms.Button AccountList;
     }
 }
 

@@ -67,6 +67,7 @@ namespace Warehouse_Management
             this.IDboxBuy.Size = new System.Drawing.Size(278, 20);
             this.IDboxBuy.TabIndex = 2;
             this.IDboxBuy.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.IDboxBuy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDboxBuy_KeyPress);
             // 
             // IDITEMLAB
             // 
@@ -96,6 +97,7 @@ namespace Warehouse_Management
             this.QuantityBuy.Size = new System.Drawing.Size(278, 20);
             this.QuantityBuy.TabIndex = 5;
             this.QuantityBuy.TextChanged += new System.EventHandler(this.QuantityBuy_TextChanged);
+            this.QuantityBuy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuantityBuy_KeyPress);
             // 
             // directorySearcher1
             // 

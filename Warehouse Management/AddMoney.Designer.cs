@@ -34,6 +34,7 @@ namespace Warehouse_Management
             this.MoneyAsk = new System.Windows.Forms.Label();
             this.MoneyAdd = new System.Windows.Forms.TextBox();
             this.CurrentBalance = new System.Windows.Forms.TextBox();
+            this.Balance = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CancelButtCanc
@@ -74,20 +75,32 @@ namespace Warehouse_Management
             this.MoneyAdd.Size = new System.Drawing.Size(278, 20);
             this.MoneyAdd.TabIndex = 6;
             this.MoneyAdd.TextChanged += new System.EventHandler(this.MoneyAdd_TextChanged);
+            this.MoneyAdd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MoneyAdd_KeyPress);
             // 
             // CurrentBalance
             // 
-            this.CurrentBalance.Location = new System.Drawing.Point(32, 28);
+            this.CurrentBalance.Location = new System.Drawing.Point(32, 43);
             this.CurrentBalance.Name = "CurrentBalance";
             this.CurrentBalance.ReadOnly = true;
             this.CurrentBalance.Size = new System.Drawing.Size(275, 20);
             this.CurrentBalance.TabIndex = 8;
+            // 
+            // Balance
+            // 
+            this.Balance.AutoSize = true;
+            this.Balance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Balance.Location = new System.Drawing.Point(69, 9);
+            this.Balance.Name = "Balance";
+            this.Balance.Size = new System.Drawing.Size(129, 18);
+            this.Balance.TabIndex = 9;
+            this.Balance.Text = "Current Balance";
             // 
             // AddMoney
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 288);
+            this.Controls.Add(this.Balance);
             this.Controls.Add(this.CurrentBalance);
             this.Controls.Add(this.MoneyAdd);
             this.Controls.Add(this.MoneyAsk);
@@ -108,5 +121,6 @@ namespace Warehouse_Management
         private System.Windows.Forms.Label MoneyAsk;
         private System.Windows.Forms.TextBox MoneyAdd;
         private System.Windows.Forms.TextBox CurrentBalance;
+        private System.Windows.Forms.Label Balance;
     }
 }

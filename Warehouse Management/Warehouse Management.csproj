@@ -54,13 +54,14 @@
     <Compile Include="AddMoney.Designer.cs">
       <DependentUpon>AddMoney.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAccount.cs" />
+    <Compile Include="SupplierAccount.cs" />
     <Compile Include="StatementForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StatementForm.Designer.cs">
       <DependentUpon>StatementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemClass.cs" />
     <Compile Include="ModifyItems.cs">
       <SubType>Form</SubType>
     </Compile>

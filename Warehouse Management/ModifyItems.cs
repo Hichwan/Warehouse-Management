@@ -16,17 +16,12 @@ namespace Warehouse_Management
     {
         private WarehouseApptest ModItem;
         int modifier;
+        public int AccountID { get; set; }
 
-        
         public ModifyItems(WarehouseApptest modify)
         {
             InitializeComponent();
             this.ModItem = modify;
-        }
-  
-        private void Quantlab_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void CancelButtCanc_Click(object sender, EventArgs e)
@@ -34,18 +29,6 @@ namespace Warehouse_Management
             this.Close();
         }
 
-        private void Modifier_Click(object sender, EventArgs e)
-        {
-
-
-
-
-        }
-
-        private void IDboxMod_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void ModList_SelectedIndexChanged(object sender, EventArgs e)
         {
             String Mod = ModList.Text;
@@ -84,19 +67,76 @@ namespace Warehouse_Management
                         using (StreamWriter sw = new StreamWriter("Action log.txt", append: true))
                         {
                             StringBuilder sb = new StringBuilder();
-                            sb.AppendLine("Modified" + " " + ModList.Text + " " + "For Item ID" + " " + row.Cells[1].Value.ToString() + " From: " + row.Cells[modifier].Value.ToString() + " To: " + ChangeBox.Text);
+                            sb.AppendLine("User #:" + AccountID + " Modified" + " " + ModList.Text + " " + "For Item ID" + " " + row.Cells[1].Value.ToString() + " From: " + row.Cells[modifier].Value.ToString() + " To: " + ChangeBox.Text);
                             sw.WriteLine(sb.ToString());
                         }
                         row.Cells[modifier].Value = ChangeBox.Text;
-
+                        string[] arrLine2 = File.ReadAllLines("Items List.txt");
+                        StringBuilder sb4 = new StringBuilder();
+                        sb4.Append(row.Cells[0].Value.ToString() + "," + Convert.ToInt32(row.Cells[1].Value) + "," + row.Cells[2].Value + "," + row.Cells[3].Value.ToString() + "," + row.Cells[4].Value.ToString());
+                        arrLine2[Convert.ToInt32(row.Cells[1].Value) - 1] = sb4.ToString();
+                        File.WriteAllLines("Items List.txt", arrLine2);
+                        this.Close();
                     }
                 }
+
                 IDboxMod.Clear();
                 ChangeBox.Clear();
             }
         }
 
+
+        private void IDboxMod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool isNumber = Char.IsNumber(e.KeyChar);
+            if (!isNumber)
+            {
+                e.Handled = true;
+                MessageBox.Show("Only numeric input is accepted");
+            }
+        }
+
+        private void ChangeBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            String Mod = ModList.Text;
+            switch (Mod)
+            {
+                case "Name":
+                    break;
+                case "Quantity":
+                    bool isNumber = Char.IsNumber(e.KeyChar);
+                    if (!isNumber)
+                    {
+                        e.Handled = true;
+                        MessageBox.Show("Only numeric input is accepted");
+                    }
+                    break;
+                case "Category":
+                    break;
+                case "Price":
+                    bool isNumber2 = Char.IsNumber(e.KeyChar);
+                    if (e.KeyChar == '.')
+                    {
+                        isNumber2 = !(sender as TextBox).Text.Contains(".");
+                    }
+                    if (!isNumber2)
+                    {
+                        e.Handled = true;
+                        MessageBox.Show("Only numeric input is accepted");
+                    }
+                    break;
+            }
+        }
+
+        private void IDboxMod_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         private void ChangeBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void Quantlab_Click(object sender, EventArgs e)
         {
 
         }
